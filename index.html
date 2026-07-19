@@ -79,28 +79,32 @@
       gap: 20px;
     }
 
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 11px;
-      text-decoration: none;
-      color: var(--navy);
-      font-weight: 700;
-      letter-spacing: -0.3px;
-    }
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+  color: var(--navy);
+  font-weight: 700;
+  letter-spacing: -0.3px;
+}
 
-    .logo-icon {
-      width: 42px;
-      height: 42px;
-      display: grid;
-      place-items: center;
-      border-radius: 14px;
-      background: var(--navy);
-      color: white;
-      font-size: 20px;
-      box-shadow: var(--small-shadow);
-    }
+.logo-icon {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  display: block;
+  flex-shrink: 0;
+}
 
+.logo-text {
+  font-family: "Playfair Display", serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--navy);
+  letter-spacing: -0.5px;
+}
+    
     .nav-links {
       display: flex;
       align-items: center;
@@ -750,9 +754,9 @@
   <nav class="top-nav">
     <div class="page-wrapper nav-content">
 
-     <a class="logo" href="index.html">
+  <a class="logo" href="index.html">
     <img src="images/recoverylab-logo.png" alt="Recovery Lab Logo" class="logo-icon">
-    <span>Recovery Lab</span>
+    <span class="logo-text">Recovery Lab</span>
 </a>
 
       <div class="nav-links">
