@@ -1,146 +1,883 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>How I Tore My ACL | Recovery Lab</title>
+
+  <meta
+    name="description"
+    content="Chapter 1 of Recovery Lab: the story of the skiing accident in Aspen that caused a complete ACL tear and began a long recovery journey."
+  >
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="icon" type="image/png" href="images/favicon.png">
+
+  <style>
+    :root {
+      --background: #f4f8fb;
+      --surface: #ffffff;
+      --surface-blue: #eaf4fa;
+      --surface-green: #edf7f4;
+      --navy: #16324f;
+      --blue: #2878a8;
+      --blue-dark: #1e5e87;
+      --teal: #3d8f87;
+      --text: #334155;
+      --muted: #64748b;
+      --border: #dce7ee;
+      --shadow: 0 18px 45px rgba(22, 50, 79, 0.1);
+      --small-shadow: 0 10px 25px rgba(22, 50, 79, 0.08);
+      --radius-large: 28px;
+      --radius-medium: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "DM Sans", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(40, 120, 168, 0.12), transparent 34%),
+        linear-gradient(180deg, #f8fbfd 0%, var(--background) 100%);
+      color: var(--text);
+      line-height: 1.8;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .page-wrapper {
+      width: min(1120px, calc(100% - 36px));
+      margin: 0 auto;
+    }
+
+    /* Navigation */
+
+    .top-nav {
+      padding: 22px 0;
+    }
+
+    .nav-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      color: var(--navy);
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+
+    .logo-icon {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+
+    .logo-text {
+      font-family: "Playfair Display", serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: -0.5px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--blue);
+    }
+
+    /* Breadcrumbs */
+
+    .breadcrumbs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 18px 0 24px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .breadcrumbs a {
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .breadcrumbs a:hover {
+      color: var(--blue);
+    }
+
+    /* Hero */
+
+    .chapter-hero {
+      position: relative;
+      overflow: hidden;
+      min-height: 640px;
+      display: flex;
+      align-items: flex-end;
+      padding: 70px 65px;
+      border-radius: 36px;
+      color: white;
+      background:
+        linear-gradient(180deg, rgba(9, 31, 50, 0.18), rgba(9, 31, 50, 0.88)),
+        url("images/aspen-colorado.jpg") center/cover no-repeat;
+      box-shadow: var(--shadow);
+    }
+
+    .chapter-hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at top right, rgba(255,255,255,0.14), transparent 26%);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 780px;
+    }
+
+    .chapter-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 20px;
+      padding: 9px 15px;
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(10px);
+      font-size: 0.84rem;
+      font-weight: 700;
+      letter-spacing: 0.9px;
+      text-transform: uppercase;
+    }
+
+    .chapter-hero h1 {
+      margin: 0;
+      font-family: "Playfair Display", serif;
+      font-size: clamp(3.2rem, 8vw, 6rem);
+      line-height: 1;
+      letter-spacing: -2px;
+    }
+
+    .hero-subtitle {
+      max-width: 690px;
+      margin: 24px 0 0;
+      color: rgba(255,255,255,0.86);
+      font-size: clamp(1.05rem, 2vw, 1.22rem);
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .meta-pill {
+      padding: 9px 13px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.13);
+      border: 1px solid rgba(255,255,255,0.2);
+      font-size: 0.88rem;
+      font-weight: 600;
+    }
+
+    /* Overview */
+
+    .overview-grid {
+      position: relative;
+      z-index: 3;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      width: calc(100% - 80px);
+      margin: -38px auto 90px;
+    }
+
+    .overview-card {
+      padding: 23px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-medium);
+      background: rgba(255,255,255,0.96);
+      box-shadow: var(--small-shadow);
+      backdrop-filter: blur(10px);
+    }
+
+    .overview-label {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--muted);
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .overview-value {
+      color: var(--navy);
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    /* Main content */
+
+    .article-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 260px;
+      gap: 42px;
+      align-items: start;
+    }
+
+    .article-content {
+      min-width: 0;
+    }
+
+    .section-card {
+      margin-bottom: 28px;
+      padding: 38px;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      background: var(--surface);
+      box-shadow: var(--small-shadow);
+    }
+
+    .section-card h2 {
+      margin: 0 0 18px;
+      color: var(--navy);
+      font-family: "Playfair Display", serif;
+      font-size: clamp(1.9rem, 4vw, 2.7rem);
+      line-height: 1.15;
+    }
+
+    .section-kicker {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--blue);
+      font-size: 0.77rem;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+    }
+
+    .section-card p {
+      margin: 0 0 18px;
+      font-size: 1.02rem;
+    }
+
+    .section-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .story-index {
+      position: sticky;
+      top: 22px;
+      padding: 25px;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      background: var(--surface-blue);
+    }
+
+    .story-index h3 {
+      margin: 0 0 14px;
+      color: var(--navy);
+      font-size: 1rem;
+    }
+
+    .story-index a {
+      display: block;
+      padding: 8px 0;
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    .story-index a:hover {
+      color: var(--blue-dark);
+    }
+
+    /* Reflection */
+
+    .reflection {
+      margin: 36px 0 80px;
+      padding: 48px;
+      border-radius: var(--radius-large);
+      background:
+        linear-gradient(135deg, rgba(231,245,250,0.96), rgba(237,247,244,0.98));
+      text-align: center;
+    }
+
+    .quote-mark {
+      color: var(--teal);
+      font-family: Georgia, serif;
+      font-size: 4.5rem;
+      line-height: 0.6;
+    }
+
+    .reflection blockquote {
+      max-width: 820px;
+      margin: 20px auto 0;
+      color: var(--navy);
+      font-family: "Playfair Display", serif;
+      font-size: clamp(1.55rem, 4vw, 2.35rem);
+      line-height: 1.35;
+    }
+
+    /* Gallery */
+
+    .gallery-section {
+      margin: 90px 0;
+    }
+
+    .section-heading {
+      max-width: 720px;
+      margin-bottom: 32px;
+    }
+
+    .section-heading span {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--blue);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 1.3px;
+      text-transform: uppercase;
+    }
+
+    .section-heading h2 {
+      margin: 0;
+      color: var(--navy);
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      line-height: 1.1;
+    }
+
+    .section-heading p {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 1.02rem;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 1.35fr 0.65fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .photo-card {
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      background: var(--surface);
+      box-shadow: var(--small-shadow);
+    }
+
+    .photo-card img {
+      width: 100%;
+      height: 100%;
+      min-height: 360px;
+      object-fit: cover;
+    }
+
+    .photo-card.knee-photo img {
+      object-position: center;
+    }
+
+    .photo-caption {
+      padding: 25px 27px 28px;
+    }
+
+    .photo-caption strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--navy);
+      font-size: 1.08rem;
+    }
+
+    .photo-caption p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    /* Next chapter */
+
+    .next-chapter {
+      margin: 90px 0 30px;
+    }
+
+    .next-card {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 24px;
+      padding: 38px;
+      border: 1px solid var(--border);
+      border-radius: 26px;
+      background: var(--navy);
+      color: white;
+      text-decoration: none;
+      box-shadow: var(--shadow);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .next-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 55px rgba(22,50,79,0.2);
+    }
+
+    .next-label {
+      display: block;
+      margin-bottom: 8px;
+      color: rgba(255,255,255,0.62);
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 1.3px;
+      text-transform: uppercase;
+    }
+
+    .next-card h2 {
+      margin: 0;
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+    }
+
+    .next-card p {
+      max-width: 650px;
+      margin: 10px 0 0;
+      color: rgba(255,255,255,0.76);
+    }
+
+    .next-arrow {
+      width: 58px;
+      height: 58px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: white;
+      color: var(--navy);
+      font-size: 1.4rem;
+      font-weight: 700;
+    }
+
+    footer {
+      margin-top: 100px;
+      padding: 42px 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    footer strong {
+      color: var(--navy);
+    }
+
+    @media (max-width: 900px) {
+      .overview-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .article-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .story-index {
+        position: static;
+        order: -1;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .page-wrapper {
+        width: min(100% - 24px, 1120px);
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .logo-icon {
+        width: 52px;
+        height: 52px;
+      }
+
+      .logo-text {
+        font-size: 1.55rem;
+      }
+
+      .chapter-hero {
+        min-height: 560px;
+        padding: 48px 25px;
+        border-radius: 26px;
+      }
+
+      .chapter-hero h1 {
+        letter-spacing: -1px;
+      }
+
+      .overview-grid {
+        width: calc(100% - 22px);
+        margin-top: -48px;
+      }
+
+      .section-card {
+        padding: 28px 24px;
+      }
+
+      .reflection {
+        padding: 42px 24px;
+      }
+
+      .next-card {
+        grid-template-columns: 1fr;
+        padding: 30px 26px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .overview-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .photo-card img {
+        min-height: 280px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<a href="index.html">← Back to Home</a>
+  <nav class="top-nav">
+    <div class="page-wrapper nav-content">
 
-<h1>How I Tore My ACL</h1>
+      <a class="logo" href="index.html">
+        <img
+          src="images/recoverylab-logo.png"
+          alt="Recovery Lab Logo"
+          class="logo-icon"
+        >
+        <span class="logo-text">Recovery Lab</span>
+      </a>
 
-<p>
-I tore my ACL on December 24th, Christmas Eve, while on a ski trip in the Aspen mountains.
-</p>
+      <div class="nav-links">
+        <a href="index.html#journey">My Journey</a>
+        <a href="index.html#journal">Weekly Journal</a>
+        <a href="index.html#about">About</a>
+      </div>
 
-<hr>
+    </div>
+  </nav>
 
-<h3>The Injury</h3>
+  <main class="page-wrapper">
 
-<p>
-It was the first run down the mountain. I went all in, skiing fast with a lot of confidence. The only things I remember are feeling extremely dizzy, wind and snow hitting my face, and my vision going blurry. Then everything went black for a moment as I fell.
-</p>
+    <div class="breadcrumbs">
+      <a href="index.html">Home</a>
+      <span>›</span>
+      <a href="index.html#journey">The Journey</a>
+      <span>›</span>
+      <span>Chapter 1</span>
+    </div>
 
-<p>
-Even though it only lasted a few seconds, I remember the impact very clearly. When I stopped rolling, I wasn’t immediately in sharp pain — I was more shocked, like I didn’t fully understand what had just happened.
-</p>
+    <header class="chapter-hero">
+      <div class="hero-content">
 
-<p>
-When I finally processed it, I looked down and noticed one ski was completely gone. My left leg still had the ski attached, and I could feel a deep, full ache around my entire knee. It wasn’t a sharp pain, but a heavy, uncomfortable feeling that wrapped around the joint.
-</p>
+        <div class="chapter-label">🏔️ Chapter 01</div>
 
-<p>
-My left leg had twisted slightly with the ski still attached, which made everything feel worse. I tried to remove the ski, but I couldn’t do it on my own.
-</p>
+        <h1>How I Tore<br>My ACL</h1>
 
-<hr>
+        <p class="hero-subtitle">
+          The skiing accident in Aspen that changed the next year of my life
+          and began a recovery journey I never expected.
+        </p>
 
-<h3>Getting Help</h3>
+        <div class="hero-meta">
+          <span class="meta-pill">December 24, 2025</span>
+          <span class="meta-pill">Aspen, Colorado</span>
+          <span class="meta-pill">About 5 min read</span>
+        </div>
 
-<p>
-A ski coach who was coming down the mountain stopped to help me. He managed to remove the ski and helped me get back on my feet. However, I still felt very dizzy and almost immediately collapsed back into the snow.
-</p>
+      </div>
+    </header>
 
-<p>
-I told him I was okay but just needed to rest. He stayed briefly and then had to continue teaching his ski group. Shortly after, my parents found me sitting in the snow.
-</p>
+    <section class="overview-grid">
 
-<p>
-At this point, I was still not in severe pain — mostly just confused and in shock. I genuinely thought it might just be a minor sprain.
-</p>
+      <div class="overview-card">
+        <span class="overview-label">Date</span>
+        <span class="overview-value">Christmas Eve, 2025</span>
+      </div>
 
-<hr>
+      <div class="overview-card">
+        <span class="overview-label">Location</span>
+        <span class="overview-value">Aspen, Colorado</span>
+      </div>
 
-<h3>Skiing After the Injury</h3>
+      <div class="overview-card">
+        <span class="overview-label">Activity</span>
+        <span class="overview-value">Skiing</span>
+      </div>
 
-<p>
-After resting for a while, I continued skiing down the mountain. I didn’t fully realize how serious the injury was at that moment.
-</p>
+      <div class="overview-card">
+        <span class="overview-label">Injury</span>
+        <span class="overview-value">Complete ACL Tear</span>
+      </div>
 
-<p>
-Once we got to the bottom, I took off my ski boot and tested my leg by putting weight on it. Something felt off — the knee felt unstable and loose, and it would occasionally give out under pressure. Still, there wasn’t a lot of pain, so I didn’t think too much of it.
-</p>
+    </section>
 
-<p>
-I ended up skiing for another 1–2 hours that day.
-</p>
+    <div class="article-layout">
 
-<hr>
+      <article class="article-content">
 
-<h3>The Next Day</h3>
+        <section class="section-card" id="injury">
+          <span class="section-kicker">The Moment It Happened</span>
+          <h2>The Injury</h2>
 
-<p>
-The next morning was very different. I woke up with a swollen knee and noticeable pain. I could still get out of bed, but I was limping heavily.
-</p>
+          <p>
+            I tore my ACL on December 24th, Christmas Eve, while on a ski trip
+            in the Aspen mountains.
+          </p>
 
-<p>
-We got ice from the hotel, and I spent most of the day resting in bed while taking Tylenol to manage the discomfort.
-</p>
+          <p>
+            It was the first run down the mountain. I went all in, skiing fast
+            with a lot of confidence. The only things I remember are feeling
+            extremely dizzy, wind and snow hitting my face, and my vision going
+            blurry. Then everything went black for a moment as I fell.
+          </p>
 
-<p>
-At this point, I started researching injuries on my own and initially thought it might be a torn meniscus.
-</p>
+          <p>
+            Even though it only lasted a few seconds, I remember the impact very
+            clearly. When I stopped rolling, I wasn’t immediately in sharp pain —
+            I was more shocked, like I didn’t fully understand what had just
+            happened.
+          </p>
 
-<hr>
+          <p>
+            When I finally processed it, I looked down and noticed one ski was
+            completely gone. My left leg still had the ski attached, and I could
+            feel a deep, full ache around my entire knee. It wasn’t a sharp pain,
+            but a heavy, uncomfortable feeling that wrapped around the joint.
+          </p>
 
-<h3>Reflection</h3>
+          <p>
+            My left leg had twisted slightly with the ski still attached, which
+            made everything feel worse. I tried to remove the ski, but I couldn’t
+            do it on my own.
+          </p>
+        </section>
 
-<p>
-Looking back, this was the moment everything started. At the time, I didn’t fully understand the severity of the injury, but the instability and swelling the next day were early signs that something more serious had happened.
-</p>
-<hr>
+        <section class="section-card" id="help">
+          <span class="section-kicker">On the Mountain</span>
+          <h2>Getting Help</h2>
 
-<div style="text-align: center; margin-top: 50px;">
+          <p>
+            A ski coach who was coming down the mountain stopped to help me. He
+            managed to remove the ski and helped me get back on my feet. However,
+            I still felt very dizzy and almost immediately collapsed back into
+            the snow.
+          </p>
 
-<h2>📸 Moments from the Day Everything Changed</h2>
+          <p>
+            I told him I was okay but just needed to rest. He stayed briefly and
+            then had to continue teaching his ski group. Shortly after, my parents
+            found me sitting in the snow.
+          </p>
 
-<p style="color: gray;">
-A few moments that marked the beginning of my ACL recovery journey.
-</p>
+          <p>
+            At this point, I was still not in severe pain — mostly just confused
+            and in shock. I genuinely thought it might just be a minor sprain.
+          </p>
+        </section>
 
-<br>
+        <section class="section-card" id="continued">
+          <span class="section-kicker">What Happened Next</span>
+          <h2>Skiing After the Injury</h2>
 
-<figure style="margin-bottom: 50px;">
-    <img src="images/aspen-colorado.jpg"
-         alt="Aspen, Colorado ski resort"
-         style="width:60%; max-width:650px; border-radius:12px;">
+          <p>
+            After resting for a while, I continued skiing down the mountain. I
+            didn’t fully realize how serious the injury was at that moment.
+          </p>
 
-    <figcaption style="max-width:650px; margin:20px auto; line-height:1.8; font-size:16px;">
-        <strong>Aspen, Colorado.</strong><br>
-        The mountain where my ACL recovery journey began. Looking back at this view, it's hard to believe that one run down the mountain would completely change the next year of my life.
-    </figcaption>
-</figure>
+          <p>
+            Once we got to the bottom, I took off my ski boot and tested my leg by
+            putting weight on it. Something felt off — the knee felt unstable and
+            loose, and it would occasionally give out under pressure. Still, there
+            wasn’t a lot of pain, so I didn’t think too much of it.
+          </p>
 
-<figure style="margin-bottom:40px;">
-    <img src="images/knee-after-injury.jpg"
-         alt="Swollen knee shortly after injury"
-         style="width:30%; max-width:250px; border-radius:12px;">
+          <p>
+            I ended up skiing for another 1–2 hours that day.
+          </p>
+        </section>
 
-    <figcaption style="max-width:600px; margin:20px auto; line-height:1.8; font-size:16px;">
-        <strong>Shortly after the injury.</strong><br>
-        After icing my knee, there was noticeable swelling and bruising, but I was still able to walk and even continue skiing. Because of that, I genuinely believed I had only suffered a minor sprain. Looking back, this photo reminds me that the severity of an ACL injury isn't always obvious immediately after it happens.
-    </figcaption>
-</figure>
+        <section class="section-card" id="next-day">
+          <span class="section-kicker">The First Warning Signs</span>
+          <h2>The Next Day</h2>
 
-</div>
-<hr>
+          <p>
+            The next morning was very different. I woke up with a swollen knee and
+            noticeable pain. I could still get out of bed, but I was limping
+            heavily.
+          </p>
 
-<div style="text-align:center; margin-top:60px; margin-bottom:40px;">
+          <p>
+            We got ice from the hotel, and I spent most of the day resting in bed
+            while taking Tylenol to manage the discomfort.
+          </p>
 
-<h2>📖 Continue the Journey</h2>
+          <p>
+            At this point, I started researching injuries on my own and initially
+            thought it might be a torn meniscus.
+          </p>
+        </section>
 
-<p style="color:#666;">
-Every recovery has a beginning. Here's what happened after I finally decided to get my knee checked.
-</p>
+      </article>
 
-<a href="diagnosis.html"
-style="font-size:22px; text-decoration:none; color:#2c5aa0;">
+      <aside class="story-index">
+        <h3>In this chapter</h3>
+        <a href="#injury">The Injury</a>
+        <a href="#help">Getting Help</a>
+        <a href="#continued">Skiing After the Injury</a>
+        <a href="#next-day">The Next Day</a>
+        <a href="#photos">Photos</a>
+      </aside>
 
-<strong>Chapter 2 → Initial Diagnosis</strong>
+    </div>
 
-</a>
+    <section class="reflection">
+      <div class="quote-mark">“</div>
 
-</div>
+      <blockquote>
+        Looking back, this was the moment everything started. At the time, I
+        didn’t fully understand the severity of the injury, but the instability
+        and swelling the next day were early signs that something more serious
+        had happened.
+      </blockquote>
+    </section>
+
+    <section class="gallery-section" id="photos">
+
+      <div class="section-heading">
+        <span>Moments From the Beginning</span>
+        <h2>The day everything changed</h2>
+        <p>
+          A few moments that marked the beginning of my ACL recovery journey.
+        </p>
+      </div>
+
+      <div class="gallery-grid">
+
+        <figure class="photo-card">
+          <img
+            src="images/aspen-colorado.jpg"
+            alt="Aspen, Colorado ski resort"
+          >
+
+          <figcaption class="photo-caption">
+            <strong>Aspen, Colorado</strong>
+            <p>
+              The mountain where my ACL recovery journey began. Looking back at
+              this view, it is hard to believe that one run down the mountain
+              would completely change the next year of my life.
+            </p>
+          </figcaption>
+        </figure>
+
+        <figure class="photo-card knee-photo">
+          <img
+            src="images/knee-after-injury.jpg"
+            alt="Swollen knee shortly after injury"
+          >
+
+          <figcaption class="photo-caption">
+            <strong>Shortly after the injury</strong>
+            <p>
+              After icing my knee, there was noticeable swelling and bruising,
+              but I was still able to walk and even continue skiing. Because of
+              that, I genuinely believed I had only suffered a minor sprain.
+              Looking back, this photo reminds me that the severity of an ACL
+              injury is not always obvious immediately after it happens.
+            </p>
+          </figcaption>
+        </figure>
+
+      </div>
+
+    </section>
+
+    <section class="next-chapter">
+
+      <a class="next-card" href="diagnosis.html">
+
+        <div>
+          <span class="next-label">Continue the Journey</span>
+          <h2>Chapter 2: Initial Diagnosis</h2>
+          <p>
+            What happened after I finally got my knee checked and learned that
+            the injury was much more serious than I first believed.
+          </p>
+        </div>
+
+        <span class="next-arrow">→</span>
+
+      </a>
+
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="page-wrapper">
+      <strong>Recovery Lab</strong><br>
+      A personal ACL recovery journey.
+    </div>
+  </footer>
+
 </body>
 </html>
