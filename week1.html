@@ -1,1 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>Week 1: The Beginning of Recovery | Recovery Lab</title>
+  <meta name="description" content="Week 1 after ACL reconstruction: pain management, swelling, the nerve block wearing off, the first post-op appointment, and the earliest steps toward physical therapy.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+
+  <link rel="icon" href="images/favicon.png">
+
+  <style>
+    :root {
+      --ink: #1f2f3d;
+      --text: #485762;
+      --muted: #74828b;
+      --blue: #4b78a8;
+      --blue-dark: #294f76;
+      --soft-blue: #eaf2f9;
+      --pale-blue: #f1f6fa;
+      --background: #f7f9fb;
+      --white: #ffffff;
+      --border: #dce5ec;
+      --shadow: 0 18px 46px rgba(42, 74, 105, .12);
+      --radius-large: 30px;
+      --radius-medium: 22px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 0 0, rgba(75, 120, 168, .12), transparent 34%),
+        var(--background);
+      font-family: "DM Sans", sans-serif;
+      line-height: 1.78;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .shell {
+      width: min(1160px, calc(100% - 36px));
+      margin-inline: auto;
+    }
+
+    /* Same header and logo placement used across the other Recovery Lab pages */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(247, 249, 251, .91);
+      border-bottom: 1px solid rgba(220, 229, 236, .92);
+      backdrop-filter: blur(16px);
+    }
+
+    .navbar {
+      min-height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 13px;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .brand-logo {
+      width: 56px;
+      height: 56px;
+      object-fit: contain;
+      filter: drop-shadow(0 8px 15px rgba(42, 74, 105, .16));
+    }
+
+    .brand-name {
+      font-family: "Playfair Display", serif;
+      font-size: 1.62rem;
+      font-weight: 800;
+    }
+
+    .home-link {
+      color: var(--blue-dark);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .hero {
+      padding: 54px 0 30px;
+    }
+
+    .hero-card {
+      position: relative;
+      min-height: 590px;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+      border-radius: 35px;
+      background: #20384f;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-photo {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 43%;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(18, 36, 54, .97) 0%, rgba(18, 36, 54, .82) 48%, rgba(18, 36, 54, .28) 100%);
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 2;
+      width: min(745px, 100%);
+      padding: 64px;
+      color: white;
+    }
+
+    .eyebrow {
+      margin-bottom: 17px;
+      color: #d8e9f8;
+      font-size: .84rem;
+      font-weight: 700;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      margin: 0 0 20px;
+      font-family: "Playfair Display", serif;
+      font-size: clamp(3.1rem, 7vw, 5.7rem);
+      line-height: .98;
+      letter-spacing: -.045em;
+    }
+
+    .hero-copy p {
+      max-width: 690px;
+      margin: 0;
+      color: rgba(255,255,255,.93);
+      font-size: 1.14rem;
+    }
+
+    .facts {
+      position: relative;
+      z-index: 5;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: -34px;
+      padding: 0 28px;
+    }
+
+    .fact {
+      padding: 22px;
+      background: rgba(255,255,255,.98);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .fact span {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--muted);
+      font-size: .71rem;
+      font-weight: 700;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+    }
+
+    .fact strong {
+      color: var(--ink);
+      font-size: 1rem;
+    }
+
+    .content-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 260px;
+      gap: 34px;
+      align-items: start;
+      padding: 72px 0 30px;
+    }
+
+    .chapter-index {
+      position: sticky;
+      top: 105px;
+      padding: 25px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-medium);
+      box-shadow: var(--shadow);
+    }
+
+    .chapter-index h2 {
+      margin: 0 0 14px;
+      color: var(--ink);
+      font-size: 1.05rem;
+    }
+
+    .chapter-index a {
+      display: block;
+      padding: 10px 0;
+      color: var(--muted);
+      border-bottom: 1px solid #edf2f6;
+      text-decoration: none;
+      font-size: .92rem;
+    }
+
+    .chapter-index a:last-child {
+      border-bottom: 0;
+    }
+
+    .chapter-index a:hover {
+      color: var(--blue-dark);
+    }
+
+    .story-card,
+    .photo-card {
+      margin-bottom: 28px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 25px;
+      box-shadow: 0 13px 32px rgba(35, 68, 95, .07);
+    }
+
+    .story-card {
+      padding: 40px;
+    }
+
+    .story-card.accent {
+      border-left: 6px solid var(--blue);
+    }
+
+    .section-label {
+      display: block;
+      margin-bottom: 9px;
+      color: var(--blue);
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .story-card h2,
+    .photo-copy h2,
+    .closing-card h2 {
+      margin: 0 0 16px;
+      color: var(--ink);
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2rem, 4vw, 2.65rem);
+      line-height: 1.14;
+    }
+
+    .story-card p,
+    .photo-copy p {
+      margin: 0 0 17px;
+    }
+
+    .story-card p:last-child,
+    .photo-copy p:last-child {
+      margin-bottom: 0;
+    }
+
+    .photo-card {
+      overflow: hidden;
+    }
+
+    .photo-grid {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      align-items: stretch;
+    }
+
+    .photo-grid.reverse {
+      grid-template-columns: 1.1fr .9fr;
+    }
+
+    .photo-grid.reverse .photo-media {
+      order: 2;
+    }
+
+    .photo-media {
+      min-height: 500px;
+      background: #dfe8ef;
+    }
+
+    .photo-media img {
+      width: 100%;
+      height: 100%;
+      min-height: 500px;
+      object-fit: cover;
+    }
+
+    .photo-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 44px;
+    }
+
+    .caption {
+      margin-top: 18px;
+      padding-top: 16px;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      font-size: .9rem;
+      line-height: 1.6;
+    }
+
+    .caption strong {
+      color: var(--ink);
+    }
+
+    .pain-panel {
+      margin-bottom: 28px;
+      padding: 44px;
+      color: white;
+      background: linear-gradient(135deg, #294f76, #1d3b58);
+      border-radius: 25px;
+      box-shadow: var(--shadow);
+    }
+
+    .pain-panel .section-label {
+      color: #cfe3f4;
+    }
+
+    .pain-panel h2 {
+      margin: 0 0 16px;
+      color: white;
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2rem, 4vw, 2.65rem);
+      line-height: 1.14;
+    }
+
+    .pain-panel p {
+      margin: 0;
+      color: rgba(255,255,255,.92);
+    }
+
+    .closing-card {
+      margin: 48px 0 0;
+      padding: 40px;
+      background: var(--soft-blue);
+      border: 1px solid #d5e4f0;
+      border-radius: 25px;
+      text-align: center;
+    }
+
+    .closing-card p {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .chapter-links {
+      display: grid;
+      grid-template-columns: 1fr;
+      margin: 42px 0 70px;
+    }
+
+    .chapter-link {
+      display: block;
+      padding: 29px;
+      background: linear-gradient(135deg, var(--blue-dark), #1d3b58);
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+      color: white;
+      text-align: right;
+      text-decoration: none;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .chapter-link:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 23px 49px rgba(42, 74, 105, .15);
+    }
+
+    .chapter-link small {
+      display: block;
+      margin-bottom: 7px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .chapter-link strong {
+      display: block;
+      font-family: "Playfair Display", serif;
+      font-size: 1.42rem;
+      line-height: 1.28;
+    }
+
+    footer {
+      padding: 34px 0 48px;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .image-error {
+      display: none;
+      height: 100%;
+      min-height: 500px;
+      padding: 35px;
+      place-items: center;
+      background: #e8eef3;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    @media (max-width: 900px) {
+      .facts {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .content-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .chapter-index {
+        position: static;
+        order: -1;
+      }
+
+      .photo-grid,
+      .photo-grid.reverse {
+        grid-template-columns: 1fr;
+      }
+
+      .photo-grid.reverse .photo-media {
+        order: 0;
+      }
+
+      .photo-media,
+      .photo-media img {
+        min-height: 0;
+        height: auto;
+        aspect-ratio: 4 / 3;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .shell {
+        width: min(100% - 22px, 1160px);
+      }
+
+      .navbar {
+        min-height: 70px;
+      }
+
+      .brand-logo {
+        width: 46px;
+        height: 46px;
+      }
+
+      .brand-name {
+        font-size: 1.3rem;
+      }
+
+      .hero {
+        padding-top: 28px;
+      }
+
+      .hero-card {
+        min-height: 510px;
+        border-radius: 25px;
+      }
+
+      .hero-copy {
+        padding: 38px 24px;
+      }
+
+      .facts {
+        grid-template-columns: 1fr;
+        margin-top: -23px;
+        padding: 0 12px;
+      }
+
+      .content-layout {
+        padding-top: 52px;
+      }
+
+      .story-card,
+      .photo-copy,
+      .pain-panel,
+      .closing-card {
+        padding: 29px 22px;
+      }
+
+      .story-card,
+      .photo-card,
+      .pain-panel,
+      .closing-card {
+        border-radius: 22px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="site-header">
+    <div class="shell navbar">
+      <a class="brand" href="index.html">
+        <img class="brand-logo" src="images/recoverylab-logo.png" alt="Recovery Lab logo">
+        <span class="brand-name">Recovery Lab</span>
+      </a>
+
+      <a class="home-link" href="index.html">Back to Home</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="shell">
+        <div class="hero-card">
+          <img
+            class="hero-photo"
+            src="images/week1-post-op-brace-crutches.jpg"
+           
+            alt="Post-operative ACL brace and crutches during the first week"
+          >
+          <div class="hero-overlay"></div>
+
+          <div class="hero-copy">
+            <div class="eyebrow">Week 1 · ACL Recovery Journal</div>
+            <h1>The Beginning of Recovery</h1>
+            <p>
+              What started as a focus on reducing swelling and regaining mobility
+              quickly became a much more difficult process than expected, with
+              significant pain and stiffness during early rehabilitation.
+            </p>
+          </div>
+        </div>
+
+        <div class="facts" aria-label="Week 1 recovery overview">
+          <div class="fact">
+            <span>Main Challenge</span>
+            <strong>Severe pain and pressure</strong>
+          </div>
+
+          <div class="fact">
+            <span>Quad Activation</span>
+            <strong>Essentially zero</strong>
+          </div>
+
+          <div class="fact">
+            <span>Mobility</span>
+            <strong>Brace and crutches</strong>
+          </div>
+
+          <div class="fact">
+            <span>Early Goal</span>
+            <strong>Begin physical therapy</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="shell content-layout">
+      <article>
+
+        <section class="story-card accent" id="experience">
+          <span class="section-label">Early Post-Op Experience</span>
+          <h2>The First Few Days</h2>
+
+          <p>
+            In the first few days after surgery, I was not able to do any real
+            exercises at all. There was essentially zero quad activation, and my
+            entire leg felt like dead weight due to how much muscle had shut down.
+          </p>
+
+          <p>
+            A large part of my time was spent dealing with pain, pressure, and
+            stiffness in the knee. I was barely able to walk, and even standing up
+            often caused sharp, shooting pain along with a strong pressure sensation.
+            My doctor explained this was likely due to fluid shifting around inside
+            the joint after surgery.
+          </p>
+        </section>
+
+        <section class="photo-card">
+          <div class="photo-grid">
+            <div class="photo-media">
+              <!-- WEEK 1 PHOTO 1: edit the src below if your filename is different -->
+              <img
+                src="images/week1-post-op-brace-crutches.jpg"
+               
+                alt="Walking with a post-operative knee brace and crutches"
+              >
+            </div>
+
+            <div class="photo-copy">
+              <span class="section-label">First Steps</span>
+              <h2>Moving With the Brace</h2>
+
+              <p>
+                The brace protected the reconstructed knee while the crutches
+                supported most of my weight. Because the quad was not activating,
+                controlling or lifting the leg was extremely difficult.
+              </p>
+
+              <p class="caption">
+                <strong>First time walking independently after surgery:</strong>
+                The nerve block was still active, but the knee was extremely stiff,
+                and moving with the brace and crutches was difficult.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="pain-panel" id="nerve-block">
+          <span class="section-label">Nerve Block & Pain Onset</span>
+          <h2>When the Nerve Block Wore Off</h2>
+
+          <p>
+            I had a nerve block on day 1, which meant I didn’t feel much immediately
+            after surgery. However, once it wore off in the middle of the night, the
+            pain became very intense, and that was when the real recovery process began.
+          </p>
+        </section>
+
+        <section class="photo-card" id="appointment">
+          <div class="photo-grid reverse">
+            <div class="photo-media">
+              <!-- WEEK 1 PHOTO 2: edit the src below if your filename is different -->
+              <img
+                src="images/week1-healing-incisions.jpg"
+               
+                alt="Healing ACL reconstruction incisions during the first week"
+              >
+            </div>
+
+            <div class="photo-copy">
+              <span class="section-label">One-Week Post-Op Appointment</span>
+              <h2>Seeing the Incisions</h2>
+
+              <p>
+                At my one-week post-op appointment, my doctor removed the bandages
+                and steri-strips. Seeing my knee for the first time was overwhelming—
+                there were two larger incisions and three smaller ones.
+              </p>
+
+              <p>
+                I had chosen a quadriceps tendon graft, and it was clear how much had
+                been done inside the knee. At this stage, all of my quad muscle had
+                essentially shut down, making my leg feel completely like dead weight.
+              </p>
+
+              <p class="caption">
+                <strong>First time seeing the surgical sites:</strong> The wounds had
+                been cleaned, and the healing incisions were visible with small
+                stitches and adhesive still present.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="story-card" id="medication">
+          <span class="section-label">Medication & Pain Management</span>
+          <h2>Reducing Pain and Pressure</h2>
+
+          <p>
+            I was taking a prescribed medication called Vicodin, but it didn’t
+            significantly reduce pain even when taking two doses. However, it did
+            make me very sleepy around four to five hours after taking it, which is
+            why I often relied on it at night.
+          </p>
+
+          <p>
+            Because the pain and pressure were still strong, my doctor prescribed a
+            stronger five-day steroid, which I took daily. This noticeably helped
+            reduce swelling and pressure over the following days.
+          </p>
+        </section>
+
+        <section class="story-card" id="plan">
+          <span class="section-label">Early Recovery Plan</span>
+          <h2>Preparing to Begin Rehabilitation</h2>
+
+          <p>
+            They also recommended that I start physical therapy as soon as possible
+            to begin restoring movement and muscle activation.
+          </p>
+
+          <p>
+            Early rehab was focused on managing swelling, trying to regain basic
+            movement, and slowly beginning to re-engage the quad as pain allowed.
+          </p>
+        </section>
+
+        <section class="closing-card">
+          <h2>The End of Week 1</h2>
+          <p>
+            Week 1 was focused on controlling pain, protecting the reconstructed
+            knee, reducing swelling, and learning how to move with almost no quad
+            control. Progress was limited, but the first stage of rehabilitation
+            had officially begun.
+          </p>
+        </section>
+
+        <nav class="chapter-links" aria-label="Chapter navigation">
+          <a class="chapter-link" href="week2.html">
+            <small>Next Chapter · Week 2</small>
+            <strong>The Adjustment Phase →</strong>
+          </a>
+        </nav>
+
+      </article>
+
+      <aside class="chapter-index">
+        <h2>Inside Week 1</h2>
+        <a href="#experience">Early post-op experience</a>
+        <a href="#nerve-block">Nerve block and pain</a>
+        <a href="#appointment">One-week appointment</a>
+        <a href="#medication">Medication and swelling</a>
+        <a href="#plan">Early recovery plan</a>
+      </aside>
+    </div>
+  </main>
+
+  <footer>
+    <div class="shell">Recovery Lab · ACL Recovery Journal</div>
+  </footer>
+</body>
+</html>
