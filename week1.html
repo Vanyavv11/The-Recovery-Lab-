@@ -545,8 +545,8 @@
         <div class="hero-card">
           <img
             class="hero-photo"
-            src="images/week1-post-op-brace-crutches.jpg"
-            data-fallback="images/week1-post-op-brace-crutches.png"
+            src="/The-Recovery-Lab/images/week1-post-op-brace-crutches.jpg"
+           
             alt="Post-operative ACL brace and crutches during the first week"
           >
           <div class="hero-overlay"></div>
@@ -612,8 +612,8 @@
           <div class="photo-grid">
             <div class="photo-media">
               <img
-                src="images/week1-post-op-brace-crutches.jpg"
-                data-fallback="images/week1-post-op-brace-crutches.png"
+                src="/The-Recovery-Lab/images/week1-post-op-brace-crutches.jpg"
+               
                 alt="Walking with a post-operative knee brace and crutches"
               >
             </div>
@@ -652,8 +652,8 @@
           <div class="photo-grid reverse">
             <div class="photo-media">
               <img
-                src="images/week1-healing-incisions.jpg"
-                data-fallback="images/week1-healing-incisions.png"
+                src="/The-Recovery-Lab/images/week1-healing-incisions.jpg"
+               
                 alt="Healing ACL reconstruction incisions during the first week"
               >
             </div>
@@ -750,16 +750,7 @@
     <div class="shell">Recovery Lab · ACL Recovery Journal</div>
   </footer>
 
-  <script>
-    document.querySelectorAll("img[data-fallback]").forEach(function (image) {
-      image.addEventListener("error", function () {
-        const fallback = image.dataset.fallback;
-        if (fallback && image.src.indexOf(fallback) === -1) {
-          image.src = fallback;
-        }
-      });
-    });
-  </script>
+
 
 </body>
 </html>
