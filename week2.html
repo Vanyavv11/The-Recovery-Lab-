@@ -1,73 +1,569 @@
-<h1>Week 2: The Adjustment Phase</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Week 2 of The Recovery Lab: adjusting to ACL reconstruction recovery, managing swelling, quad pain, fatigue, and early mobility."
+  />
+  <title>Week 2: The Adjustment Phase | The Recovery Lab</title>
 
-<p>
-During Week 2, I developed a noticeable amount of swelling on the side of my quad, which may have been caused by the brace being too tight. My quad became extremely sore at times, and in some moments it actually hurt more than my knee itself.
-</p>
+  <style>
+    :root {
+      --navy: #17324d;
+      --blue: #5d87a8;
+      --blue-soft: #eaf2f7;
+      --blue-pale: #f6f9fb;
+      --ink: #243746;
+      --muted: #6d7c88;
+      --white: #ffffff;
+      --border: #dbe5ec;
+      --shadow: 0 16px 45px rgba(31, 55, 75, 0.12);
+      --shadow-soft: 0 8px 24px rgba(31, 55, 75, 0.08);
+      --radius-lg: 26px;
+      --radius-md: 18px;
+      --radius-sm: 12px;
+    }
 
-<hr>
+    * {
+      box-sizing: border-box;
+    }
 
-<h3>Swelling & Quad Pain</h3>
+    html {
+      scroll-behavior: smooth;
+    }
 
-<p>
-The swelling in my quad became more noticeable during this week, especially on the side. The soreness was intense, and at times it felt worse than the actual knee pain.
-</p>
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(93, 135, 168, 0.12), transparent 32%),
+        linear-gradient(180deg, #f7fafc 0%, #ffffff 34%, #f7fafc 100%);
+      line-height: 1.7;
+    }
 
-<p>
-Despite this, the deep shooting pain I felt in Week 1 started to decrease when standing. However, there was still a strong and constant feeling of pressure inside the knee.
-</p>
+    img {
+      display: block;
+      max-width: 100%;
+    }
 
-<p>
-Around day 10, after starting a steroid medication, I noticed a very clear improvement. Swelling and pressure reduced significantly, and the knee felt slightly more manageable.
-</p>
+    a {
+      color: inherit;
+    }
 
-<hr>
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(16px);
+      background: rgba(255, 255, 255, 0.88);
+      border-bottom: 1px solid rgba(219, 229, 236, 0.9);
+    }
 
-<h3>Mobility & Walking</h3>
+    .header-inner {
+      width: min(1160px, calc(100% - 32px));
+      margin: 0 auto;
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
 
-<p>
-I tried walking more using both crutches, but I was extremely fatigued. The Vicodin I was taking made me very tired, which made even basic movement exhausting.
-</p>
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: -0.02em;
+    }
 
-<p>
-Walking was still limited and required a lot of focus and effort, even with assistance.
-</p>
+    .brand img {
+      width: 46px;
+      height: 46px;
+      object-fit: contain;
+    }
 
-<hr>
+    .home-button,
+    .nav-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      border-radius: 999px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
 
-<h3>Exercises & Physical Limitations</h3>
+    .home-button {
+      padding: 10px 17px;
+      color: var(--navy);
+      background: var(--blue-soft);
+      border: 1px solid var(--border);
+    }
 
-<p>
-At this stage, the only exercise I could consistently do was ankle pumps. My leg still felt like dead weight, and I had no ability to lift it due to extremely weak or absent quad activation.
-</p>
+    .home-button:hover,
+    .nav-button:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-soft);
+    }
 
-<hr>
+    .hero {
+      width: min(1160px, calc(100% - 32px));
+      margin: 34px auto 0;
+      min-height: 590px;
+      position: relative;
+      overflow: hidden;
+      border-radius: 32px;
+      box-shadow: var(--shadow);
+      background: var(--navy);
+    }
 
-<h3>Swelling Management</h3>
+    .hero-photo {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 38%;
+      filter: saturate(0.92) contrast(1.02);
+    }
 
-<p>
-Swelling in the knee was slowly going down over time. I was icing 4–5 times a day and elevating my leg as much as possible to control inflammation.
-</p>
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(14, 34, 52, 0.92) 0%, rgba(14, 34, 52, 0.72) 38%, rgba(14, 34, 52, 0.18) 74%),
+        linear-gradient(0deg, rgba(14, 34, 52, 0.55), transparent 50%);
+    }
 
-<hr>
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      min-height: 590px;
+      width: min(650px, 76%);
+      padding: 74px 62px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      color: var(--white);
+    }
 
-<h3>Mental Challenge</h3>
+    .eyebrow {
+      display: inline-flex;
+      width: fit-content;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.14);
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
 
-<p>
-Mentally, this period was very difficult. I was extremely bored, bed-ridden for nearly two weeks, and it often felt like recovery was stuck or not improving at all.
-</p>
+    h1 {
+      margin: 20px 0 16px;
+      max-width: 720px;
+      font-size: clamp(2.8rem, 6vw, 5.5rem);
+      line-height: 0.98;
+      letter-spacing: -0.055em;
+    }
 
-<p>
-At times it felt discouraging, like progress might not come, even though small improvements were happening.
-</p>
+    .hero p {
+      margin: 0;
+      max-width: 590px;
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: rgba(255, 255, 255, 0.88);
+    }
 
-<hr>
+    .photo-caption {
+      position: absolute;
+      z-index: 3;
+      right: 22px;
+      bottom: 20px;
+      margin: 0;
+      padding: 9px 13px;
+      border-radius: 999px;
+      background: rgba(16, 36, 53, 0.72);
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 0.82rem;
+      backdrop-filter: blur(10px);
+    }
 
-<h3>Small Improvements</h3>
+    main {
+      width: min(1040px, calc(100% - 32px));
+      margin: 54px auto 70px;
+    }
 
-<p>
-I finally took a shower sitting down, and the warm water helped relax my muscles. Afterward, my knee felt slightly looser and less stiff.
-</p>
+    .intro-card {
+      padding: 34px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      background: rgba(255, 255, 255, 0.88);
+      box-shadow: var(--shadow-soft);
+    }
 
-<p>
-At this point, I still wasn’t confident enough to return to school because I didn’t want to risk pain, fatigue, or setbacks while being around a lot of movement.
-</p>
+    .intro-card p {
+      margin: 0;
+      font-size: 1.08rem;
+    }
+
+    .section-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+      margin-top: 26px;
+    }
+
+    .story-card {
+      position: relative;
+      overflow: hidden;
+      padding: 28px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      background: var(--white);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .story-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 6px;
+      height: 100%;
+      background: linear-gradient(180deg, var(--blue), #9bb8cc);
+    }
+
+    .story-card h2 {
+      margin: 0 0 12px;
+      color: var(--navy);
+      font-size: 1.28rem;
+      letter-spacing: -0.025em;
+    }
+
+    .story-card p {
+      margin: 0 0 12px;
+    }
+
+    .story-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .wide {
+      grid-column: 1 / -1;
+    }
+
+    .feature-photo {
+      margin: 28px 0;
+      overflow: hidden;
+      border-radius: 28px;
+      border: 1px solid var(--border);
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .feature-photo img {
+      width: 100%;
+      max-height: 720px;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .feature-copy {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+      padding: 22px 24px;
+    }
+
+    .feature-copy h2 {
+      margin: 0 0 4px;
+      color: var(--navy);
+      font-size: 1.25rem;
+    }
+
+    .feature-copy p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .week-label {
+      flex: 0 0 auto;
+      padding: 7px 11px;
+      border-radius: 999px;
+      background: var(--blue-soft);
+      color: var(--navy);
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .mental-card {
+      margin-top: 26px;
+      padding: 34px;
+      border-radius: var(--radius-lg);
+      color: var(--white);
+      background:
+        radial-gradient(circle at top right, rgba(255, 255, 255, 0.12), transparent 34%),
+        linear-gradient(135deg, #17324d, #274d6d);
+      box-shadow: var(--shadow);
+    }
+
+    .mental-card h2 {
+      margin: 0 0 12px;
+      font-size: 1.45rem;
+    }
+
+    .mental-card p {
+      margin: 0 0 12px;
+      color: rgba(255, 255, 255, 0.86);
+    }
+
+    .mental-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .small-win {
+      margin-top: 26px;
+      padding: 28px 30px;
+      border-radius: var(--radius-md);
+      border: 1px dashed #9cb7ca;
+      background: linear-gradient(135deg, #f3f8fb, #ffffff);
+    }
+
+    .small-win h2 {
+      margin: 0 0 10px;
+      color: var(--navy);
+      font-size: 1.28rem;
+    }
+
+    .small-win p {
+      margin: 0;
+    }
+
+    .page-navigation {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: 48px;
+    }
+
+    .nav-button {
+      min-width: 160px;
+      padding: 13px 20px;
+      border: 1px solid var(--border);
+      background: var(--white);
+      color: var(--navy);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .nav-button.next {
+      background: var(--navy);
+      color: var(--white);
+      border-color: var(--navy);
+    }
+
+    footer {
+      padding: 34px 16px 48px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 760px) {
+      .header-inner {
+        min-height: 68px;
+      }
+
+      .brand span {
+        display: none;
+      }
+
+      .hero {
+        min-height: 560px;
+        margin-top: 20px;
+      }
+
+      .hero::after {
+        background:
+          linear-gradient(0deg, rgba(14, 34, 52, 0.94) 0%, rgba(14, 34, 52, 0.62) 58%, rgba(14, 34, 52, 0.18) 100%);
+      }
+
+      .hero-content {
+        min-height: 560px;
+        width: 100%;
+        padding: 40px 26px 82px;
+        justify-content: flex-end;
+      }
+
+      h1 {
+        font-size: clamp(2.65rem, 13vw, 4.5rem);
+      }
+
+      .photo-caption {
+        right: auto;
+        left: 22px;
+        bottom: 18px;
+      }
+
+      .section-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .wide {
+        grid-column: auto;
+      }
+
+      .intro-card,
+      .story-card,
+      .mental-card,
+      .small-win {
+        padding: 24px;
+      }
+
+      .feature-copy {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .page-navigation {
+        flex-direction: column;
+      }
+
+      .nav-button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="The Recovery Lab home">
+        <img src="images/recoverylab-logo.png" alt="The Recovery Lab logo" />
+        <span>The Recovery Lab</span>
+      </a>
+
+      <a class="home-button" href="index.html">⌂ Home</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <img
+      class="hero-photo"
+      src="images/week2-brace.png"
+      alt="ACL recovery brace and bandaging during week two"
+    />
+
+    <div class="hero-content">
+      <span class="eyebrow">ACL Recovery Journal · Week 2</span>
+      <h1>The Adjustment Phase</h1>
+      <p>
+        Week 2 was about managing swelling, quad pain, fatigue, and the slow adjustment to everyday movement.
+      </p>
+    </div>
+
+    <p class="photo-caption">Still swollen, sore, and heavily supported.</p>
+  </section>
+
+  <main>
+    <section class="intro-card">
+      <p>
+        During Week 2, I developed a noticeable amount of swelling on the side of my quad, which may have been caused by the brace being too tight. My quad became extremely sore at times, and in some moments it actually hurt more than my knee itself.
+      </p>
+    </section>
+
+    <section class="section-grid">
+      <article class="story-card">
+        <h2>Swelling &amp; Quad Pain</h2>
+        <p>
+          The swelling in my quad became more noticeable during this week, especially on the side. The soreness was intense, and at times it felt worse than the actual knee pain.
+        </p>
+        <p>
+          Despite this, the deep shooting pain I felt in Week 1 started to decrease when standing. However, there was still a strong and constant feeling of pressure inside the knee.
+        </p>
+        <p>
+          Around day 10, after starting a steroid medication, I noticed a very clear improvement. Swelling and pressure reduced significantly, and the knee felt slightly more manageable.
+        </p>
+      </article>
+
+      <article class="story-card">
+        <h2>Mobility &amp; Walking</h2>
+        <p>
+          I tried walking more using both crutches, but I was extremely fatigued. The Vicodin I was taking made me very tired, which made even basic movement exhausting.
+        </p>
+        <p>
+          Walking was still limited and required a lot of focus and effort, even with assistance.
+        </p>
+      </article>
+    </section>
+
+    <figure class="feature-photo">
+      <img
+        src="images/week2-incisions.png"
+        alt="Healing ACL surgery incisions with steri-strips during week two"
+      />
+      <figcaption class="feature-copy">
+        <div>
+          <h2>Healing Progress</h2>
+          <p>The bandages were off, but swelling and stiffness were still very noticeable.</p>
+        </div>
+        <span class="week-label">Week 2</span>
+      </figcaption>
+    </figure>
+
+    <section class="section-grid">
+      <article class="story-card">
+        <h2>Exercises &amp; Physical Limitations</h2>
+        <p>
+          At this stage, the only exercise I could consistently do was ankle pumps. My leg still felt like dead weight, and I had no ability to lift it due to extremely weak or absent quad activation.
+        </p>
+      </article>
+
+      <article class="story-card">
+        <h2>Swelling Management</h2>
+        <p>
+          Swelling in the knee was slowly going down over time. I was icing 4–5 times a day and elevating my leg as much as possible to control inflammation.
+        </p>
+      </article>
+    </section>
+
+    <section class="mental-card">
+      <h2>Mental Challenge</h2>
+      <p>
+        Mentally, this period was very difficult. I was extremely bored, bed-ridden for nearly two weeks, and it often felt like recovery was stuck or not improving at all.
+      </p>
+      <p>
+        At times it felt discouraging, like progress might not come, even though small improvements were happening.
+      </p>
+    </section>
+
+    <section class="small-win">
+      <h2>Small Improvements</h2>
+      <p>
+        I finally took a shower sitting down, and the warm water helped relax my muscles. Afterward, my knee felt slightly looser and less stiff.
+      </p>
+    </section>
+
+    <nav class="page-navigation" aria-label="Week navigation">
+      <a class="nav-button" href="week1.html">← Previous: Week 1</a>
+      <a class="nav-button next" href="week3.html">Next: Week 3 →</a>
+    </nav>
+  </main>
+
+  <footer>
+    The Recovery Lab · A personal ACL recovery journal
+  </footer>
+</body>
+</html>
