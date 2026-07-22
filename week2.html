@@ -1,536 +1,783 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Week 2 of The Recovery Lab ACL recovery journal." />
-  <title>Week 2: The Adjustment Phase | The Recovery Lab</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Week 2: The Adjustment Phase | Recovery Lab</title>
+  <meta name="description" content="Week 2 after ACL reconstruction: quad swelling, pressure, fatigue, limited mobility, and the small improvements that began to make recovery more manageable.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+
+  <link rel="icon" href="images/favicon.png">
 
   <style>
-    :root{
-      --navy:#17324d;
-      --blue:#6f96b1;
-      --light:#eef4f8;
-      --ink:#263a48;
-      --muted:#6d7c86;
-      --line:#dbe5eb;
-      --white:#ffffff;
-      --shadow:0 14px 36px rgba(30,55,73,.10);
-      --radius:22px;
+    :root {
+      --ink: #1f2f3d;
+      --text: #485762;
+      --muted: #74828b;
+      --blue: #668aaa;
+      --blue-dark: #355b79;
+      --soft-blue: #edf3f7;
+      --pale-blue: #f3f7fa;
+      --background: #f7f9fb;
+      --white: #ffffff;
+      --border: #dce5ec;
+      --shadow: 0 18px 46px rgba(42, 74, 105, .12);
+      --radius-large: 30px;
+      --radius-medium: 22px;
     }
 
-    *{box-sizing:border-box}
-
-    html{scroll-behavior:smooth}
-
-    body{
-      margin:0;
-      font-family:Arial, Helvetica, sans-serif;
-      color:var(--ink);
-      background:#f7fafc;
-      line-height:1.65;
+    * {
+      box-sizing: border-box;
     }
 
-    img{
-      display:block;
-      max-width:100%;
+    html {
+      scroll-behavior: smooth;
     }
 
-    a{
-      color:inherit;
-      text-decoration:none;
+    body {
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 0 0, rgba(75, 120, 168, .12), transparent 34%),
+        var(--background);
+      font-family: "DM Sans", sans-serif;
+      line-height: 1.78;
     }
 
-    .topbar{
-      position:sticky;
-      top:0;
-      z-index:20;
-      background:rgba(255,255,255,.95);
-      border-bottom:1px solid var(--line);
-      backdrop-filter:blur(10px);
+    img {
+      display: block;
+      max-width: 100%;
     }
 
-    .topbar-inner{
-      width:min(1120px, calc(100% - 32px));
-      margin:auto;
-      min-height:72px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:18px;
+    a {
+      color: inherit;
     }
 
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:11px;
-      font-weight:700;
-      color:var(--navy);
-      font-size:1rem;
+    .shell {
+      width: min(1160px, calc(100% - 36px));
+      margin-inline: auto;
     }
 
-    .brand img{
-      width:44px;
-      height:44px;
-      object-fit:contain;
+    /* Same header and logo placement used across the other Recovery Lab pages */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(247, 249, 251, .91);
+      border-bottom: 1px solid rgba(220, 229, 236, .92);
+      backdrop-filter: blur(16px);
     }
 
-    .home-btn{
-      padding:10px 16px;
-      border-radius:999px;
-      background:var(--light);
-      border:1px solid var(--line);
-      color:var(--navy);
-      font-weight:700;
-      transition:.2s ease;
+    .navbar {
+      min-height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
     }
 
-    .home-btn:hover,
-    .week-btn:hover{
-      transform:translateY(-2px);
-      box-shadow:0 8px 20px rgba(30,55,73,.10);
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 13px;
+      color: var(--ink);
+      text-decoration: none;
     }
 
-    .hero{
-      position:relative;
-      width:min(1180px, calc(100% - 28px));
-      height:560px;
-      margin:22px auto 0;
-      border-radius:28px;
-      overflow:hidden;
-      background:#18344d;
-      box-shadow:var(--shadow);
+    .brand-logo {
+      width: 56px;
+      height: 56px;
+      object-fit: contain;
+      filter: drop-shadow(0 8px 15px rgba(42, 74, 105, .16));
     }
 
-    .hero img{
-      position:absolute;
-      inset:0;
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      object-position:center 42%;
-      filter:none;
+    .brand-name {
+      font-family: "Playfair Display", serif;
+      font-size: 1.62rem;
+      font-weight: 800;
     }
 
-    .hero::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:linear-gradient(
-        90deg,
-        rgba(14,31,46,.84) 0%,
-        rgba(14,31,46,.62) 40%,
-        rgba(14,31,46,.18) 72%,
-        rgba(14,31,46,.06) 100%
-      );
+    .home-link {
+      color: var(--blue-dark);
+      text-decoration: none;
+      font-weight: 700;
     }
 
-    .hero-content{
-      position:relative;
-      z-index:2;
-      width:min(590px, 67%);
-      height:100%;
-      padding:58px;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      color:white;
+    .hero {
+      padding: 54px 0 30px;
     }
 
-    .hero-label{
-      margin:0 0 13px;
-      font-size:.82rem;
-      font-weight:700;
-      letter-spacing:.12em;
-      text-transform:uppercase;
-      color:rgba(255,255,255,.78);
+    .hero-card {
+      position: relative;
+      min-height: 590px;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+      border-radius: 35px;
+      background: #20384f;
+      box-shadow: var(--shadow);
     }
 
-    h1{
-      margin:0 0 16px;
-      font-family:Georgia, "Times New Roman", serif;
-      font-size:clamp(3rem, 5vw, 5.3rem);
-      line-height:1;
-      letter-spacing:-.04em;
+    .hero-photo {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+      background: #20384f;
     }
 
-    .hero-text{
-      margin:0;
-      max-width:540px;
-      font-size:1.08rem;
-      color:rgba(255,255,255,.88);
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(18, 36, 54, .97) 0%, rgba(18, 36, 54, .82) 48%, rgba(18, 36, 54, .28) 100%);
     }
 
-    main{
-      width:min(1040px, calc(100% - 32px));
-      margin:52px auto 70px;
+    .hero-copy {
+      position: relative;
+      z-index: 2;
+      width: min(745px, 100%);
+      padding: 64px;
+      color: white;
     }
 
-    .opening{
-      max-width:820px;
-      margin:0 auto 44px;
-      padding:30px 32px;
-      border-radius:var(--radius);
-      background:white;
-      border:1px solid var(--line);
-      box-shadow:0 8px 24px rgba(30,55,73,.06);
+    .eyebrow {
+      margin-bottom: 17px;
+      color: #d8e9f8;
+      font-size: .84rem;
+      font-weight: 700;
+      letter-spacing: .15em;
+      text-transform: uppercase;
     }
 
-    .opening p{margin:0}
-
-    .content-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:22px;
-      margin-bottom:22px;
+    .hero h1 {
+      margin: 0 0 20px;
+      font-family: "Playfair Display", serif;
+      font-size: clamp(3.1rem, 7vw, 5.7rem);
+      line-height: .98;
+      letter-spacing: -.045em;
     }
 
-    .section-card{
-      background:white;
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      padding:27px 28px;
-      box-shadow:0 8px 24px rgba(30,55,73,.06);
+    .hero-copy p {
+      max-width: 690px;
+      margin: 0;
+      color: rgba(255,255,255,.93);
+      font-size: 1.14rem;
     }
 
-    .section-card h2,
-    .photo-text h2,
-    .mental h2,
-    .small-win h2{
-      margin:0 0 12px;
-      font-family:Georgia, "Times New Roman", serif;
-      color:var(--navy);
-      font-size:1.65rem;
-      line-height:1.15;
+    .facts {
+      position: relative;
+      z-index: 5;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: -34px;
+      padding: 0 28px;
     }
 
-    .section-card p,
-    .photo-text p{
-      margin:0 0 12px;
+    .fact {
+      padding: 22px;
+      background: rgba(255,255,255,.98);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
     }
 
-    .section-card p:last-child,
-    .photo-text p:last-child{
-      margin-bottom:0;
+    .fact span {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--muted);
+      font-size: .71rem;
+      font-weight: 700;
+      letter-spacing: .09em;
+      text-transform: uppercase;
     }
 
-    .photo-section{
-      display:grid;
-      grid-template-columns:minmax(0, 430px) 1fr;
-      gap:34px;
-      align-items:center;
-      margin:34px 0;
-      padding:28px;
-      border-radius:26px;
-      background:white;
-      border:1px solid var(--line);
-      box-shadow:var(--shadow);
+    .fact strong {
+      color: var(--ink);
+      font-size: 1rem;
     }
 
-    .photo-section.reverse{
-      grid-template-columns:1fr minmax(0, 430px);
+    .content-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 260px;
+      gap: 34px;
+      align-items: start;
+      padding: 72px 0 30px;
     }
 
-    .photo-section.reverse .photo-wrap{
-      order:2;
+    .chapter-index {
+      position: sticky;
+      top: 105px;
+      padding: 25px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-medium);
+      box-shadow: var(--shadow);
     }
 
-    .photo-section.reverse .photo-text{
-      order:1;
+    .chapter-index h2 {
+      margin: 0 0 14px;
+      color: var(--ink);
+      font-size: 1.05rem;
     }
 
-    .photo-wrap{
-      background:#eef3f6;
-      border-radius:18px;
-      overflow:hidden;
+    .chapter-index a {
+      display: block;
+      padding: 10px 0;
+      color: var(--muted);
+      border-bottom: 1px solid #edf2f6;
+      text-decoration: none;
+      font-size: .92rem;
     }
 
-    .photo-wrap img{
-      width:100%;
-      height:420px;
-      object-fit:contain;
-      object-position:center;
+    .chapter-index a:last-child {
+      border-bottom: 0;
     }
 
-    .caption{
-      margin:10px 0 0;
-      text-align:center;
-      color:var(--muted);
-      font-size:.88rem;
+    .chapter-index a:hover {
+      color: var(--blue-dark);
     }
 
-    .mental{
-      margin:34px 0 22px;
-      padding:32px;
-      border-radius:24px;
-      background:var(--navy);
-      color:white;
-      box-shadow:var(--shadow);
+    .story-card,
+    .photo-card {
+      margin-bottom: 28px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 25px;
+      box-shadow: 0 13px 32px rgba(35, 68, 95, .07);
     }
 
-    .mental h2{
-      color:white;
+    .story-card {
+      padding: 40px;
     }
 
-    .mental p{
-      margin:0 0 12px;
-      color:rgba(255,255,255,.86);
+    .story-card.accent {
+      border-left: 6px solid var(--blue);
     }
 
-    .mental p:last-child{margin-bottom:0}
-
-    .small-win{
-      padding:27px 30px;
-      border-radius:20px;
-      background:linear-gradient(90deg, #edf4f8, #ffffff);
-      border:1px solid var(--line);
+    .section-label {
+      display: block;
+      margin-bottom: 9px;
+      color: var(--blue);
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
     }
 
-    .small-win p{margin:0}
-
-    .week-nav{
-      margin-top:46px;
-      display:flex;
-      justify-content:space-between;
-      gap:16px;
+    .story-card h2,
+    .photo-copy h2,
+    .closing-card h2 {
+      margin: 0 0 16px;
+      color: var(--ink);
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2rem, 4vw, 2.65rem);
+      line-height: 1.14;
     }
 
-    .week-btn{
-      min-width:165px;
-      padding:12px 18px;
-      border-radius:999px;
-      border:1px solid var(--line);
-      background:white;
-      color:var(--navy);
-      font-weight:700;
-      text-align:center;
-      transition:.2s ease;
+    .story-card p,
+    .photo-copy p {
+      margin: 0 0 17px;
     }
 
-    .week-btn.next{
-      background:var(--navy);
-      color:white;
-      border-color:var(--navy);
+    .story-card p:last-child,
+    .photo-copy p:last-child {
+      margin-bottom: 0;
     }
 
-    footer{
-      padding:20px 16px 44px;
-      text-align:center;
-      color:var(--muted);
-      font-size:.9rem;
+    .photo-card {
+      overflow: hidden;
     }
 
-    @media(max-width:820px){
-      .hero{
-        height:600px;
+    .photo-grid {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      align-items: stretch;
+    }
+
+    .photo-grid.reverse {
+      grid-template-columns: 1.1fr .9fr;
+    }
+
+    .photo-grid.reverse .photo-media {
+      order: 2;
+    }
+
+    .photo-media {
+      min-height: 500px;
+      background: #dfe8ef;
+    }
+
+    .photo-media img {
+      width: 100%;
+      height: 100%;
+      min-height: 500px;
+      object-fit: cover;
+    }
+
+    .photo-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 44px;
+    }
+
+    .caption {
+      margin-top: 18px;
+      padding-top: 16px;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      font-size: .9rem;
+      line-height: 1.6;
+    }
+
+    .caption strong {
+      color: var(--ink);
+    }
+
+    .pain-panel {
+      margin-bottom: 28px;
+      padding: 44px;
+      color: white;
+      background: linear-gradient(135deg, #294f76, #1d3b58);
+      border-radius: 25px;
+      box-shadow: var(--shadow);
+    }
+
+    .pain-panel .section-label {
+      color: #cfe3f4;
+    }
+
+    .pain-panel h2 {
+      margin: 0 0 16px;
+      color: white;
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2rem, 4vw, 2.65rem);
+      line-height: 1.14;
+    }
+
+    .pain-panel p {
+      margin: 0;
+      color: rgba(255,255,255,.92);
+    }
+
+    .closing-card {
+      margin: 48px 0 0;
+      padding: 40px;
+      background: var(--soft-blue);
+      border: 1px solid #d5e4f0;
+      border-radius: 25px;
+      text-align: center;
+    }
+
+    .closing-card p {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .chapter-links {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin: 42px 0 70px;
+    }
+
+    .chapter-link {
+      display: block;
+      padding: 29px;
+      background: linear-gradient(135deg, var(--blue-dark), #1d3b58);
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+      color: white;
+      text-align: right;
+      text-decoration: none;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .chapter-link.previous {
+      color: var(--blue-dark);
+      background: var(--white);
+      border: 1px solid var(--border);
+      text-align: left;
+    }
+
+    .chapter-link:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 23px 49px rgba(42, 74, 105, .15);
+    }
+
+    .chapter-link small {
+      display: block;
+      margin-bottom: 7px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .chapter-link strong {
+      display: block;
+      font-family: "Playfair Display", serif;
+      font-size: 1.42rem;
+      line-height: 1.28;
+    }
+
+    footer {
+      padding: 34px 0 48px;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .image-error {
+      display: none;
+      height: 100%;
+      min-height: 500px;
+      padding: 35px;
+      place-items: center;
+      background: #e8eef3;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    @media (max-width: 900px) {
+      .facts {
+        grid-template-columns: repeat(2, 1fr);
       }
 
-      .hero img{
-        object-position:center 38%;
+      .content-layout {
+        grid-template-columns: 1fr;
       }
 
-      .hero::after{
-        background:linear-gradient(
-          0deg,
-          rgba(14,31,46,.90) 0%,
-          rgba(14,31,46,.55) 56%,
-          rgba(14,31,46,.12) 100%
-        );
+      .chapter-index {
+        position: static;
+        order: -1;
       }
 
-      .hero-content{
-        width:100%;
-        padding:34px 26px 46px;
-        justify-content:flex-end;
+      .photo-grid,
+      .photo-grid.reverse {
+        grid-template-columns: 1fr;
       }
 
-      .content-grid,
-      .photo-section,
-      .photo-section.reverse{
-        grid-template-columns:1fr;
+      .photo-grid.reverse .photo-media {
+        order: 0;
       }
 
-      .photo-section.reverse .photo-wrap,
-      .photo-section.reverse .photo-text{
-        order:initial;
-      }
-
-      .photo-wrap img{
-        height:auto;
-        max-height:520px;
+      .photo-media,
+      .photo-media img {
+        min-height: 0;
+        height: auto;
+        aspect-ratio: 4 / 3;
       }
     }
 
-    @media(max-width:560px){
-      .brand span{display:none}
-
-      .hero{
-        width:calc(100% - 16px);
-        height:560px;
-        border-radius:22px;
-        margin-top:10px;
+    @media (max-width: 680px) {
+      .shell {
+        width: min(100% - 22px, 1160px);
       }
 
-      .hero-content{
-        padding:28px 21px 38px;
+      .navbar {
+        min-height: 70px;
       }
 
-      h1{
-        font-size:2.85rem;
+      .brand-logo {
+        width: 46px;
+        height: 46px;
       }
 
-      main{
-        width:calc(100% - 22px);
-        margin-top:38px;
+      .brand-name {
+        font-size: 1.3rem;
       }
 
-      .opening,
-      .section-card,
-      .photo-section,
-      .mental,
-      .small-win{
-        padding:22px;
+      .hero {
+        padding-top: 28px;
       }
 
-      .week-nav{
-        flex-direction:column;
+      .hero-card {
+        min-height: 510px;
+        border-radius: 25px;
       }
 
-      .week-btn{
-        width:100%;
+      .hero-copy {
+        padding: 38px 24px;
+      }
+
+      .facts {
+        grid-template-columns: 1fr;
+        margin-top: -23px;
+        padding: 0 12px;
+      }
+
+      .content-layout {
+        padding-top: 52px;
+      }
+
+      .story-card,
+      .photo-copy,
+      .pain-panel,
+      .closing-card {
+        padding: 29px 22px;
+      }
+
+      .chapter-links {
+        grid-template-columns: 1fr;
+      }
+
+      .story-card,
+      .photo-card,
+      .pain-panel,
+      .closing-card {
+        border-radius: 22px;
       }
     }
   </style>
 </head>
 
 <body>
-  <header class="topbar">
-    <div class="topbar-inner">
+
+  <header class="site-header">
+    <div class="shell navbar">
       <a class="brand" href="index.html">
-        <img src="images/recoverylab-logo.png" alt="The Recovery Lab logo">
-        <span>The Recovery Lab</span>
+        <img class="brand-logo" src="images/recoverylab-logo.png" alt="Recovery Lab logo">
+        <span class="brand-name">Recovery Lab</span>
       </a>
 
-      <a class="home-btn" href="index.html">Home</a>
+      <a class="home-link" href="index.html">Back to Home</a>
     </div>
   </header>
 
-  <section class="hero">
-    <img
-      src="images/week2-incisions.png"
-      alt="ACL recovery during week two"
-    >
-
-    <div class="hero-content">
-      <p class="hero-label">ACL Recovery Journal · Week 2</p>
-      <h1>The Adjustment Phase</h1>
-      <p class="hero-text">
-        This week was about handling swelling, quad pain, fatigue, and slowly getting used to moving again.
-      </p>
-    </div>
-  </section>
-
   <main>
-    <section class="opening">
-      <p>
-        During Week 2, I developed a noticeable amount of swelling on the side of my quad, which may have been caused by the brace being too tight. My quad became extremely sore at times, and in some moments it actually hurt more than my knee itself.
-      </p>
+    <section class="hero">
+      <div class="shell">
+        <div class="hero-card">
+          <img
+            class="hero-photo"
+            src="images/week2-incisions.png"
+            alt="Healing ACL surgery incisions during Week 2"
+          >
+          <div class="hero-overlay"></div>
+
+          <div class="hero-copy">
+            <div class="eyebrow">Week 2 · ACL Recovery Journal</div>
+            <h1>The Adjustment Phase</h1>
+            <p>
+              The second week was still difficult, but the pain began changing.
+              Swelling, quad soreness, fatigue, and pressure became the main challenges
+              as I slowly adjusted to moving through everyday life again.
+            </p>
+          </div>
+        </div>
+
+        <div class="facts" aria-label="Week 2 recovery overview">
+          <div class="fact">
+            <span>Main Challenge</span>
+            <strong>Quad swelling and soreness</strong>
+          </div>
+
+          <div class="fact">
+            <span>Mobility</span>
+            <strong>Two crutches and brace</strong>
+          </div>
+
+          <div class="fact">
+            <span>Exercise</span>
+            <strong>Ankle pumps only</strong>
+          </div>
+
+          <div class="fact">
+            <span>Small Win</span>
+            <strong>Less pressure by day 10</strong>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section class="photo-section">
-      <div class="photo-wrap">
-        <img
-          src="images/week2-brace.png"
-          alt="Leg supported by a brace during ACL recovery"
-        >
-        <p class="caption">My leg was still heavily supported while the swelling went down.</p>
-      </div>
+    <div class="shell content-layout">
+      <article>
 
-      <div class="photo-text">
-        <h2>Swelling &amp; Quad Pain</h2>
+        <section class="story-card accent" id="overview">
+          <span class="section-label">Week 2 Overview</span>
+          <h2>Still Healing, but Beginning to Adjust</h2>
 
-        <p>
-          The swelling in my quad became more noticeable during this week, especially on the side. The soreness was intense, and at times it felt worse than the actual knee pain.
-        </p>
+          <p>
+            During Week 2, I developed a noticeable amount of swelling on the side
+            of my quad, which may have been caused by the brace being too tight.
+            My quad became extremely sore at times, and in some moments it actually
+            hurt more than my knee itself.
+          </p>
 
-        <p>
-          Despite this, the deep shooting pain I felt in Week 1 started to decrease when standing. However, there was still a strong and constant feeling of pressure inside the knee.
-        </p>
+          <p>
+            Even though the deep shooting pain from Week 1 started to ease, the knee
+            still felt heavy, stiff, and full of pressure. Most of the week was spent
+            trying to control swelling and get through basic movement.
+          </p>
+        </section>
 
-        <p>
-          Around day 10, after starting a steroid medication, I noticed a very clear improvement. Swelling and pressure reduced significantly, and the knee felt slightly more manageable.
-        </p>
-      </div>
-    </section>
+        <section class="photo-card" id="swelling">
+          <div class="photo-grid">
+            <div class="photo-media">
+              <img
+                src="images/week2-brace.png"
+                alt="Leg supported in a brace with bandaging during Week 2"
+              >
+            </div>
 
-    <section class="content-grid">
-      <article class="section-card">
-        <h2>Mobility &amp; Walking</h2>
-        <p>
-          I tried walking more using both crutches, but I was extremely fatigued. The Vicodin I was taking made me very tired, which made even basic movement exhausting.
-        </p>
-        <p>
-          Walking was still limited and required a lot of focus and effort, even with assistance.
-        </p>
+            <div class="photo-copy">
+              <span class="section-label">Swelling & Quad Pain</span>
+              <h2>The Quad Became the Most Painful Part</h2>
+
+              <p>
+                The swelling on the side of my quad became much more noticeable.
+                The soreness was intense, and at times it felt worse than the actual
+                knee pain.
+              </p>
+
+              <p>
+                The deep shooting pain while standing started to decrease, but there
+                was still a strong and constant pressure inside the knee.
+              </p>
+
+              <p class="caption">
+                <strong>Heavy support during Week 2:</strong>
+                The brace and bandaging were still helping protect the knee while
+                the swelling slowly settled.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="pain-panel" id="turning-point">
+          <span class="section-label">A Noticeable Turning Point</span>
+          <h2>Improvement Around Day 10</h2>
+
+          <p>
+            Around day 10, after starting a steroid medication, I noticed a very
+            clear improvement. The swelling and pressure reduced significantly,
+            and the knee finally felt slightly more manageable.
+          </p>
+        </section>
+
+        <section class="story-card" id="mobility">
+          <span class="section-label">Mobility & Walking</span>
+          <h2>Basic Movement Was Still Exhausting</h2>
+
+          <p>
+            I tried walking more using both crutches, but I was extremely fatigued.
+            The Vicodin I was taking made me very tired, which made even basic
+            movement feel exhausting.
+          </p>
+
+          <p>
+            Walking was still limited and required a lot of focus and effort,
+            even with assistance from the brace and crutches.
+          </p>
+        </section>
+
+        <section class="photo-card" id="healing">
+          <div class="photo-grid reverse">
+            <div class="photo-media">
+              <img
+                src="images/week2-incisions.png"
+                alt="Healing ACL surgery incisions with steri-strips during Week 2"
+              >
+            </div>
+
+            <div class="photo-copy">
+              <span class="section-label">Healing Progress</span>
+              <h2>Seeing the Knee Without the Bandages</h2>
+
+              <p>
+                The bandages were off, and the incisions were beginning to heal.
+                Even though the knee was still visibly swollen and stiff, seeing the
+                surgical sites made the progress feel more real.
+              </p>
+
+              <p>
+                I continued icing four to five times a day and elevating my leg as
+                much as possible to help control inflammation.
+              </p>
+
+              <p class="caption">
+                <strong>Early incision healing:</strong>
+                The steri-strips were still in place while the swelling slowly
+                began to improve.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="story-card" id="limitations">
+          <span class="section-label">Exercises & Physical Limitations</span>
+          <h2>My Leg Still Felt Like Dead Weight</h2>
+
+          <p>
+            At this stage, the only exercise I could consistently do was ankle pumps.
+            My leg still felt like dead weight, and I had no ability to lift it because
+            my quad activation was still extremely weak or absent.
+          </p>
+        </section>
+
+        <section class="story-card" id="mental">
+          <span class="section-label">Mental Challenge</span>
+          <h2>Feeling Stuck in the Same Place</h2>
+
+          <p>
+            Mentally, this period was very difficult. I was extremely bored,
+            bed-ridden for nearly two weeks, and it often felt like recovery was
+            stuck or not improving at all.
+          </p>
+
+          <p>
+            At times it felt discouraging, like progress might not come, even though
+            small improvements were happening in the background.
+          </p>
+        </section>
+
+        <section class="closing-card" id="small-win">
+          <h2>A Small but Important Improvement</h2>
+          <p>
+            I finally took a shower sitting down, and the warm water helped relax
+            my muscles. Afterward, my knee felt slightly looser and less stiff.
+            It was a small moment, but it made the week feel a little more manageable.
+          </p>
+        </section>
+
+        <nav class="chapter-links" aria-label="Chapter navigation">
+          <a class="chapter-link previous" href="week1.html">
+            <small>Previous Chapter · Week 1</small>
+            <strong>← The Beginning of Recovery</strong>
+          </a>
+
+          <a class="chapter-link" href="week3.html">
+            <small>Next Chapter · Week 3</small>
+            <strong>The First Signs of Progress →</strong>
+          </a>
+        </nav>
+
       </article>
 
-      <article class="section-card">
-        <h2>Exercises &amp; Physical Limitations</h2>
-        <p>
-          At this stage, the only exercise I could consistently do was ankle pumps. My leg still felt like dead weight, and I had no ability to lift it due to extremely weak or absent quad activation.
-        </p>
-      </article>
-    </section>
-
-    <section class="photo-section reverse">
-      <div class="photo-wrap">
-        <img
-          src="images/week2-incisions.png"
-          alt="Healing ACL surgery incisions with steri-strips"
-        >
-        <p class="caption">The bandages were off, but the knee was still swollen and stiff.</p>
-      </div>
-
-      <div class="photo-text">
-        <h2>Swelling Management</h2>
-
-        <p>
-          Swelling in the knee was slowly going down over time. I was icing 4–5 times a day and elevating my leg as much as possible to control inflammation.
-        </p>
-
-        <p>
-          Seeing the incisions after the bandages came off made the healing process feel more real, even though the knee still looked swollen.
-        </p>
-      </div>
-    </section>
-
-    <section class="mental">
-      <h2>Mental Challenge</h2>
-
-      <p>
-        Mentally, this period was very difficult. I was extremely bored, bed-ridden for nearly two weeks, and it often felt like recovery was stuck or not improving at all.
-      </p>
-
-      <p>
-        At times it felt discouraging, like progress might not come, even though small improvements were happening.
-      </p>
-    </section>
-
-    <section class="small-win">
-      <h2>Small Improvements</h2>
-      <p>
-        I finally took a shower sitting down, and the warm water helped relax my muscles. Afterward, my knee felt slightly looser and less stiff.
-      </p>
-    </section>
-
-    <nav class="week-nav" aria-label="Week navigation">
-      <a class="week-btn" href="week1.html">← Previous: Week 1</a>
-      <a class="week-btn next" href="week3.html">Next: Week 3 →</a>
-    </nav>
+      <aside class="chapter-index">
+        <h2>Inside Week 2</h2>
+        <a href="#overview">Week 2 overview</a>
+        <a href="#swelling">Swelling and quad pain</a>
+        <a href="#turning-point">Improvement around day 10</a>
+        <a href="#mobility">Mobility and walking</a>
+        <a href="#healing">Healing progress</a>
+        <a href="#limitations">Exercise limitations</a>
+        <a href="#mental">Mental challenge</a>
+        <a href="#small-win">Small improvement</a>
+      </aside>
+    </div>
   </main>
 
   <footer>
-    The Recovery Lab · A personal ACL recovery journal
+    <div class="shell">Recovery Lab · ACL Recovery Journal</div>
   </footer>
 </body>
 </html>
